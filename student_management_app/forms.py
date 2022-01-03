@@ -16,14 +16,13 @@ class NumberInput(forms.NumberInput):
     input_type = "number"
 
 class AddStudentForm(forms.Form):
-    def __init__(self,list_courses,session_list,*args,**kwargs):
+    def __init__(self,list_courses,sessions,*args,**kwargs):
         super(AddStudentForm,self).__init__(*args,**kwargs)
         self.fields['course'].choices = list_courses
-        self.fields['session_year'].choices = session_list
+        self.fields['session_year'].choices = sessions
         # self.fields['Course'].widget = forms.Select(attrs={"class":"form-control"})
         # self.list_courses=list_courses
 
-    
     
     
 

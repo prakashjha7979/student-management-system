@@ -154,17 +154,17 @@ def add_student(request):
     except:
         courses = []
     
-    session_list = []
+    sessions = []
     try:
-        sessions = SessionYearModel.object.all()
+        session_list = SessionYearModel.object.all()
 
-        for ses in sessions:
+        for ses in session_list:
             small_ses = (ses.id, str(ses.session_start_year)+"   TO  "+str(ses.session_end_year))
-            session_list.append(small_ses)
+            sessions.append(small_ses)
     except:
-        session_list=[]
+        sessions=[]
 
-    form=AddStudentForm(courses,session_list)
+    form=AddStudentForm(courses,sessions)
     return render(request,"hod_template/add_student_template.html",{"form":form})
 
 def add_student_save(request):
@@ -173,7 +173,9 @@ def add_student_save(request):
     
     else:
         # breakpoint()
-        form=AddStudentForm(request.POST,request.FILES)
+        form=AddStudentForm(get_course_list,get_session_list,request.POST,request.FILES)
+        # form=AddStudentForm(request.POST,request.FILES)
+
         
         if form.is_valid():
             email_exists=True if (CustomUser.objects.filter(email=form.cleaned_data["email"]).exists()) else False
@@ -236,7 +238,9 @@ def add_student_save(request):
             #     messages.error(request,"Failed to Add Student")
             #     return HttpResponseRedirect(reverse("add_student"))
         else:
-            form=AddStudentForm(request.POST)
+            # form=AddStudentForm(request=request)
+            # form=AddStudentForm(request.POST)
+            form=AddStudentForm(get_course_list,get_session_list,request.POST)
             return render(request,"hod_template/add_student_template.html",{"form":form})
 
 
@@ -937,3 +941,29 @@ def check_course_exist(request):
         return HttpResponse("Course already exists!")
     else:
         return HttpResponse(False)
+
+def get_course_list():
+    courses = []
+    try:
+        list_courses = Courses.objects.all()
+        for course in list_courses:
+            small_course=(course.id,course.course_name)
+            courses.append(small_course)
+
+    except:
+        courses = []
+
+    return courses
+
+def get_session_list():
+    sessions = []
+    try:
+        session_list = SessionYearModel.object.all()
+
+        for ses in session_list:
+            small_ses = (ses.id, str(ses.session_start_year)+"   TO  "+str(ses.session_end_year))
+            sessions.append(small_ses)
+    except:
+        sessions=[]
+
+    return sessions
