@@ -1,0 +1,99 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="" class="brand-link">
+    <img src="{% static "dist/img/AdminLTELogo.png" %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      style="opacity: .8">
+    <span class="brand-text font-weight-light">S.V.UNIVERSITY</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="{{ student.profile_pic }}" class="img-circle" alt="User Image" style="width:120px">
+      </div>
+      <div class="info">
+        <a href="{% url 'student_profile' %}" class="d-block">{{ user.username }}</a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          {% url 'student_home' as student_home %}
+          <a href="{{ student_home }}" class="nav-link {% if request.path == student_home %} active {% endif %}">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Home
+            </p>
+          </a>
+
+        </li>
+        <li class="nav-item">
+          {% url 'student_profile' as student_profile %}
+          <a href="{% url 'student_profile' %}"
+            class="nav-link {% if request.path == student_profile %} active {% endif %}"><i
+              class="nav-icon fas fa-th"></i>
+            <p> My Profile</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'student_dashboard' as student_dashboard %}
+          <a href="{% url 'student_dashboard' %}"
+            class="nav-link {% if request.path == student_dashboard %} active {% endif %}">
+            <i class="nav-icon fas fa-envelope-open-text"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'student_document' as student_document %}
+          <a href="{% url 'student_document' %}"
+            class="nav-link {% if request.path == student_document %} active {% endif %}"><i
+              class="nav-icon fas fa-tasks"></i>
+            <p> Upload Documents</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'student_view_attendance' as student_view_attendance %}
+          {% url 'student_view_attendance_post' as student_view_attendance_post %}
+          <a href="{{ student_view_attendance }}"
+            class="nav-link {% if request.path == student_view_attendance %} active {% endif %} {% if request.path == student_view_attendance_post %} active {% endif %}">
+            <i class="nav-icon fas fa-calendar-alt"></i>
+            <p>
+              View Attendance
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'student_apply_leave' as student_apply_leave %}
+          <a href="{{ student_apply_leave }}"
+            class="nav-link {% if request.path == student_apply_leave %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Apply for Leave
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'student_feedback' as student_feedback %}
+          <a href="{{ student_feedback }}"
+            class="nav-link {% if request.path == student_feedback %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Student Feedback
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

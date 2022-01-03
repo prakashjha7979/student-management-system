@@ -1,0 +1,2100 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Admin Manage Student Document Page
+{% endblock page_title %}
+{% block main_content %}
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Title & Breadcrumbs-->
+        <div class="row page-titles">
+            <div class="col-md-12 align-self-center">
+                <h4 class="theme-cl">Upload Documents</h4>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Upload documents which you have</div>
+            <form role="form" action="{% url 'hod_document_save' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label>HSC Marksheet</label>
+                        <input type="file" class="form-control pd-3px" name="hsc_marksheet">
+                    </div>
+                    <div class="form-group">
+                        <!-- <button class="btn btn-success"><a download="{{std_documents.hsc_marksheet}}"
+                                href="{{std_documents.hsc_marksheet}}">Download</a></button>
+                        <button><a href="{{std_documents.hsc_marksheet}}">View</a></button> -->
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.hsc_marksheet}}"
+                                href="{{std_documents.hsc_marksheet}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.hsc_marksheet}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>HSC Certificate</label>
+                        <input type="file" class="form-control" name="hsc_certificate">
+                        <!-- <button><a download="{{std_documents.hsc_certificate}}"
+                                href="{{std_documents.hsc_certificate}}">Uploaded File</a></button> -->
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.hsc_certificate}}"
+                                href="{{std_documents.hsc_certificate}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.hsc_certificate}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+                    <div class="form-group">
+                        <label>SSC Marksheet</label>
+                        <input type="file" class="form-control" name="ssc_marksheet">
+                        <!-- <button><a download="{{std_documents.ssc_marksheet}}"
+                                href="{{std_documents.ssc_marksheet}}">Uploaded File</a></button> -->
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.ssc_marksheet}}"
+                                href="{{std_documents.ssc_marksheet}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.ssc_marksheet}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+                    <div class="form-group">
+                        <label>SSC Certificate</label>
+                        <input type="file" class="form-control" name="ssc_certificate">
+                        <!-- <button><a download="{{std_documents.ssc_marksheet}}"
+                                href="{{std_documents.ssc_marksheet}}">Uploaded File</a></button> -->
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.ssc_certificate}}"
+                                href="{{std_documents.ssc_certificate}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.ssc_certificate}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+                    <div class="form-group">
+                        <label>UG Marksheet</label>
+                        <input type="file" class="form-control" name="ug_marksheet">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.ssc_certificate}}"
+                                href="{{std_documents.ug_marksheet}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.ug_marksheet}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+                    <div class="form-group">
+                        <label>UG Certificate</label>
+                        <input type="file" class="form-control" name="ug_certificate">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.ug_certificate}}"
+                                href="{{std_documents.ug_certificate}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.ug_certificate}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pg Marksheet</label>
+                        <input type="file" class="form-control" name="pg_marksheet">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.pg_marksheet}}"
+                                href="{{std_documents.pg_marksheet}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.pg_marksheet}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pg Certificate</label>
+                        <input type="file" class="form-control" name="pg_certificate">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.pg_certificate}}"
+                                href="{{std_documents.pg_certificate}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.pg_certificate}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Diploma Marksheet</label>
+                        <input type="file" class="form-control" name="diploma_marksheet">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.diploma_marksheet}}"
+                                href="{{std_documents.diploma_marksheet}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.diploma_marksheet}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Diploma Certificate</label>
+                        <input type="file" class="form-control" name="diploma_certificate">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.diploma_certificate}}"
+                                href="{{std_documents.diploma_certificate}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.diploma_certificate}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Character certificate</label>
+                        <input type="file" class="form-control" name="cc">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.cc}}"
+                                href="{{std_documents.cc}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.cc}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Caste</label>
+                        <input type="file" class="form-control" name="caste">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.caste}}"
+                                href="{{std_documents.caste}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.caste}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transfer Certificate</label>
+                        <input type="file" class="form-control" name="tc">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.tc}}"
+                                href="{{std_documents.tc}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.tc}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Migration</label>
+                        <input type="file" class="form-control" name="migration">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.migration}}"
+                                href="{{std_documents.migration}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.migration}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>GAP Certificate</label>
+                        <input type="file" class="form-control" name="gap">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.gap}}"
+                                href="{{std_documents.gap}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.gap}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Medical</label>
+                        <input type="file" class="form-control" name="medical">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.medical}}"
+                                href="{{std_documents.medical}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.medical}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Income</label>
+                        <input type="file" class="form-control" name="income">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.income}}"
+                                href="{{std_documents.income}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.income}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Residence</label>
+                        <input type="file" class="form-control" name="residence">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.residence}}"
+                                href="{{std_documents.residence}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.residence}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pan Card</label>
+                        <input type="file" class="form-control" name="pan_card">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.pan_card}}"
+                                href="{{std_documents.pan_card}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.pan_card}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Aadhar Card</label>
+                        <input type="file" class="form-control" name="aadhar_card">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.aadhar_card}}"
+                                href="{{std_documents.aadhar_card}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.aadhar_card}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Samaj kalyan Form</label>
+                        <input type="file" class="form-control" name="sk_form">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.sk_form}}"
+                                href="{{std_documents.sk_form}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.sk_form}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Affidavit</label>
+                        <input type="file" class="form-control" name="affidavit">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.affidavit}}"
+                                href="{{std_documents.affidavit}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.affidavit}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fee Commitment</label>
+                        <input type="file" class="form-control" name="fee_commitment">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.fee_commitment}}"
+                                href="{{std_documents.fee_commitment}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.fee_commitment}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Checklist</label>
+                        <input type="file" class="form-control" name="checklist">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.checklist}}"
+                                href="{{std_documents.checklist}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.checklist}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Anti Ragging</label>
+                        <input type="file" class="form-control" name="anti_ragging">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.anti_ragging}}"
+                                href="{{std_documents.anti_ragging}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.anti_ragging}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Other</label>
+                        <input type="file" class="form-control" name="other">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.other}}"
+                                href="{{std_documents.other}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.other}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" class="form-control" name="photo">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.photo}}"
+                                href="{{std_documents.photo}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.photo}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Signature</label>
+                        <input type="file" class="form-control" name="signature">
+                    </div>
+                    <div class="form-group">
+                        <!-- HTML !-->
+                        <button class="button-62" role="button"><a download="{{std_documents.signature}}"
+                                href="{{std_documents.signature}}">Download</a></button>
+                        <style>
+                            /* CSS */
+                            .button-62 {
+                                background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+                                border: 0;
+                                border-radius: 12px;
+                                color: #FFFFFF;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.5;
+                                outline: transparent;
+                                padding: 0 1rem;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: box-shadow .2s ease-in-out;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                                white-space: nowrap;
+                            }
+
+                            .button-62:not([disabled]):focus {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+
+                            .button-62:not([disabled]):hover {
+                                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5),
+                                    .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+                            }
+                        </style>
+                        <!-- HTML !-->
+                        <button class="button-33" role="button"><a
+                                href="{{std_documents.signature}}">View</a></button>
+                        <style>
+                            /* CSS */
+                            .button-33 {
+                                background-color: #c2fbd7;
+                                border-radius: 100px;
+                                box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+                                color: green;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+                                padding: 7px 20px;
+                                text-align: center;
+                                text-decoration: none !important;
+                                transition: all 250ms;
+                                border: 0;
+                                font-size: 16px;
+                                user-select: none;
+                                -webkit-user-select: none;
+                                touch-action: manipulation;
+                            }
+
+                            .button-33:hover {
+                                box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+                                transform: scale(1.05) rotate(-1deg);
+                            }
+                        </style>
+                    </div>
+
+                    <div class="form-group">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Upload Document</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    <!-- #end main-container -->
+
+    </div>
+</section>
+<!-- /.content -->
+{% endblock main_content %}

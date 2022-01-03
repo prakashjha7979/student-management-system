@@ -1,0 +1,68 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Add Course
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Course</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              {% url 'add_course_save' as action_path %}
+                {% include 'hod_template/course_form.html' with messages=messages form=form action_path=action_path button_text="Add Course" %}
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+{% block custom_js %}
+<script>
+    $(document).ready(function(){
+        $("#id_course").keyup(function(){
+            var course=$(this).val();
+
+           if(course!=""){
+                $.ajax({
+                    url:'{% url 'check_course_exist' %}',
+                    type:'POST',
+                    data:{course:course}
+                })
+                .done(function(response){
+                    console.log(response);
+                    if(response=="True"){
+                        $(".course_error").remove();
+                        $("<span class='course_error' style='padding: 5px;color: red;font-weight: bold;'>Course already exist</span>").insertAfter("#id_course");
+                    }
+                    else{
+                        $(".course_error").remove();
+                        $("<span class='course_error' style='padding: 5px;color: green;font-weight: bold;'>This is new course</span>").insertAfter("#id_course");
+                    }
+                })
+                .fail(function(){
+                    console.log("failed");
+                })
+            }
+            else{
+              $(".course_error").remove();
+            }
+
+        });
+
+        
+    });
+</script>
+{% endblock custom_js %}
+
